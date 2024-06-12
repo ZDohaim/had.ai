@@ -1,0 +1,48 @@
+var TDLinkConverter = {
+    init: function (o) {
+        var trackingDomain = "https://clk.tradedoubler.com/click";
+        var siteId = 3268439;
+        var epi = "";
+        var epi2 = "";
+        var jsonData = {"success":false,"data":[]};
+        var links = document.links;
+        var linksCount = links.length;
+        var ttid = "18";
+        var getLocationFct = this.getLocation;
+            if (true == jsonData.success) {
+                var programs = jsonData.data;
+                var max = programs.length;
+                for(var i = 0; i < max; i++) {
+                    var program = programs[i];
+                    if("clk.tradedoubler.com" != program.host) {
+                        for(var k=0; k < linksCount; k++) {
+                            var link = links[k];
+                            var href = link.href;
+                            var l = getLocationFct(href);
+                            if (l.hostname == program.host) {
+                                link.href = trackingDomain + "?p=" + program.id + "&a=" + siteId + "&ttid=" + ttid;
+                                if (epi != "") {
+                                    link.href = link.href + "&epi=" + encodeURIComponent(epi);
+                                }
+                                if (epi2 != "") {
+                                    link.href = link.href + "&epi2=" + encodeURIComponent(epi2);
+                                }
+                                link.href = link.href + "&url=" + encodeURIComponent(href);
+                                                                links[k] = link;
+                            }
+                        }
+                    }
+                }
+            }
+    },
+    getLocation: function getLocation(href) {
+        var location = document.createElement("a");
+        location.href = href;
+        if (location.host == "") {
+            location.href = location.href;
+        }
+        return location;
+    }
+}
+
+window.tdlcAsyncInit();

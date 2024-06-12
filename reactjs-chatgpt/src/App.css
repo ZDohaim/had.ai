@@ -1,0 +1,68 @@
+/* Import the Arabic font from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap");
+
+/* Apply background color to the entire viewport */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ddd0c8; /* Dark Goldenrod */
+  overflow-x: hidden;
+  font-family: "Cairo", sans-serif; /* Set default font for body */
+}
+
+.App {
+  position: relative;
+  text-align: center;
+  min-height: 100vh; /* Ensure the App component covers the full height of the viewport */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-family: "Cairo", sans-serif; /* Set default font for body */
+  color: #323232; /* Gold */
+  font-weight: bold;
+}
+
+h2 {
+  color: #323232; /* Gold */
+  font-style: italic;
+}
+
+.logo {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.text {
+  margin: 10px 0;
+}
+
+.enter-button {
+  background-color: #323232; /* Goldenrod */
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none; /* Remove underline from link */
+  display: inline-block;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.enter-button a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.enter-button:hover {
+  background-color: #32323285;
+  cursor: pointer;
+}
