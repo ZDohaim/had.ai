@@ -5,7 +5,7 @@ const OpenAI = require("openai");
 const axiosRetry = require("axios-retry");
 
 const openai = new OpenAI({
-  apiKey: "sk-proj-vMZItnZAxfYWtyw6gNStT3BlbkFJQIqs9wR02wHAgchfxw82", // Ensure your API key is correct
+  apiKey: "your_openai_api_key", // Ensure your API key is correct
 });
 
 const app = express();
@@ -21,13 +21,14 @@ app.post("/api/gift-ideas", async (req, res) => {
     giftType,
     occasion,
     interests,
+    other, // Handle other text
   } = req.body;
 
   const messages = [
     { role: "system", content: "You are a helpful assistant." },
     {
       role: "user",
-      content: `Generate gift ideas for a ${gender}, aged ${ageRange}, who is a ${relationship}. Price range: ${priceRange}, Gift type: ${giftType}, Occasion: ${occasion}, Interests: ${interests}.`,
+      content: `Generate gift ideas for a ${gender}, aged ${ageRange}, who is a ${relationship}. Price range: ${priceRange}, Gift type: ${giftType}, Occasion: ${occasion}, Interests: ${interests}, Other: ${other}.`,
     },
   ];
 

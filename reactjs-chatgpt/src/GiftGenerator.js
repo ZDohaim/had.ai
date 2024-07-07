@@ -13,6 +13,7 @@ function GiftGenerator() {
   const [giftType, setGiftType] = useState("");
   const [occasion, setOccasion] = useState("");
   const [interests, setInterests] = useState("");
+  const [other, setOther] = useState(""); // New state for other text
   const [giftIdeas, setGiftIdeas] = useState("");
 
   const genderOptions = ["Male", "Female", "Other"];
@@ -57,6 +58,7 @@ function GiftGenerator() {
       giftType,
       occasion,
       interests,
+      other, // Include other text in the data
     };
 
     try {
@@ -185,6 +187,16 @@ function GiftGenerator() {
               </option>
             ))}
           </select>
+        </label>
+        <label>
+          Other:
+          <input
+            className="textBox"
+            type="text"
+            value={other}
+            onChange={(e) => setOther(e.target.value)}
+            placeholder="Enter any other preferences"
+          />
         </label>
       </div>
       <button onClick={handleSubmit}>Search with AI</button>

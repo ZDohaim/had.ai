@@ -49,3 +49,13 @@
 .GiftGenerator button:hover {
   background-color: #32323285;
 }
+
+.GiftGenerator .textBox {
+  width: 100%;
+  padding: 4px;
+  height: auto;
+  border: 1px solid #ddd0c8;
+  border-radius: 4px;
+  font-family: "Cairo", sans-serif; /* Set default font for body */
+  box-sizing: border-box;
+}
